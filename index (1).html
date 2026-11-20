@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Reported Speech</title>
+
+    <!-- CSS ditaruh langsung di dalam file HTML ini -->
+    <style>
+        /* ===== Warna & pengaturan dasar ===== */
+        :root {
+            --biru-tua: #1e3a5f;
+            --biru: #2f6fb0;
+            --biru-muda: #e8f1fa;
+            --kuning: #f2b632;
+            --teks: #222b36;
+            --abu: #5b6673;
+            --garis: #d5dde6;
+            --latar: #f6f8fb;
+            --putih: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px; /* supaya judul tidak tertutup menu saat diklik */
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--teks);
+            background: var(--latar);
+        }
+
+        /* ===== Kepala website ===== */
+        header {
+            background: var(--biru-tua);
+            color: var(--putih);
+            text-align: center;
+            padding: 48px 20px 40px;
+            border-bottom: 5px solid var(--kuning);
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 2rem;
+            line-height: 1.25;
+        }
+
+        header p {
+            margin: 0;
+            color: #c9d8ea;
+        }
+
+        /* ===== Menu navigasi ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 8px 12px;
+            background: var(--putih);
+            border-bottom: 1px solid var(--garis);
+        }
+
+        nav a {
+            padding: 6px 14px;
+            border-radius: 6px;
+            color: var(--biru-tua);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            background: var(--biru-muda);
+        }
+
+        /* ===== Konten utama ===== */
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 28px 16px 40px;
+        }
+
+        .kotak-materi {
+            background: var(--putih);
+            border: 1px solid var(--garis);
+            border-left: 5px solid var(--biru);
+            border-radius: 8px;
+            padding: 22px 26px;
+            margin-bottom: 24px;
+        }
+
+        .kotak-materi h2 {
+            margin: 0 0 12px;
+            font-size: 1.35rem;
+            color: var(--biru-tua);
+        }
+
+        .kotak-materi p {
+            margin: 0 0 12px;
+        }
+
+        .kotak-materi p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== Tabel tenses ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 14px;
+            font-size: 0.97rem;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border: 1px solid var(--garis);
+        }
+
+        thead th {
+            background: var(--biru-tua);
+            color: var(--putih);
+            border-color: var(--biru-tua);
+        }
+
+        tbody tr:nth-child(even) {
+            background: var(--latar);
+        }
+
+        /* ===== Daftar keterangan waktu ===== */
+        .daftar-waktu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .daftar-waktu li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--garis);
+        }
+
+        .daftar-waktu li:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== Contoh kalimat ===== */
+        .contoh-box {
+            background: var(--biru-muda);
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-bottom: 14px;
+        }
+
+        .contoh-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .contoh-box p {
+            margin: 0 0 6px;
+        }
+
+        .contoh-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        u {
+            text-decoration-color: var(--kuning);
+            text-decoration-thickness: 3px;
+            text-underline-offset: 3px;
+        }
+
+        /* ===== Tombol kembali ke atas ===== */
+        .tombol-wrap {
+            text-align: center;
+        }
+
+        .tombol {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--biru);
+            color: var(--putih);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+
+        .tombol:hover {
+            background: var(--biru-tua);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: var(--biru-tua);
+            color: #c9d8ea;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* ===== Fokus keyboard ===== */
+        a:focus-visible {
+            outline: 3px solid var(--kuning);
+            outline-offset: 2px;
+        }
+
+        /* ===== Tampilan HP ===== */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .kotak-materi {
+                padding: 18px;
+            }
+
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bagian Kepala Website -->
+    <header id="atas">
+        <h1>English Learning: Reported Speech</h1>
+        <p>Materi Pembelajaran Bahasa Inggris oleh [Nama Kamu]</p>
+    </header>
+
+    <!-- Menu Navigasi Sederhana -->
+    <nav>
+        <a href="#pengertian">Pengertian</a>
+        <a href="#aturan">Aturan Tenses</a>
+        <a href="#waktu">Keterangan Waktu</a>
+        <a href="#contoh">Contoh Kalimat</a>
+    </nav>
+
+    <!-- Konten Utama -->
+    <main>
+        <!-- Bagian 1: Pengertian -->
+        <section id="pengertian" class="kotak-materi">
+            <h2>1. Apa itu Reported Speech?</h2>
+            <p>
+                <strong>Reported Speech</strong> (atau <em>Indirect Speech</em>) adalah kalimat tidak langsung yang digunakan untuk menyampaikan kembali perkataan orang lain tanpa mengutip kata demi kata secara persis.
+            </p>
+            <p>
+                Berbeda dengan <em>Direct Speech</em> yang memakai tanda kutip ("..."), Reported Speech biasanya menggunakan kata penghubung seperti <strong>said that</strong> atau <strong>told me that</strong>.
+            </p>
+        </section>
+
+        <!-- Bagian 2: Tabel Perubahan Tenses -->
+        <section id="aturan" class="kotak-materi">
+            <h2>2. Perubahan Tenses (Mundur Satu Langkah)</h2>
+            <p>Jika kata kerja pengantarnya berbentuk lampau (seperti <em>said</em>), maka tenses di dalam kalimat harus berubah menjadi lebih lampau:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Direct Speech (Kalimat Langsung)</th>
+                        <th>Reported Speech (Tidak Langsung)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Simple Present</td>
+                        <td>Simple Past</td>
+                    </tr>
+                    <tr>
+                        <td>Present Continuous</td>
+                        <td>Past Continuous</td>
+                    </tr>
+                    <tr>
+                        <td>Simple Past</td>
+                        <td>Past Perfect</td>
+                    </tr>
+                    <tr>
+                        <td>Will (Future)</td>
+                        <td>Would</td>
+                    </tr>
+                    <tr>
+                        <td>Can</td>
+                        <td>Could</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Bagian 3: Perubahan Keterangan Waktu -->
+        <section id="waktu" class="kotak-materi">
+            <h2>3. Perubahan Keterangan Waktu</h2>
+            <ul class="daftar-waktu">
+                <li><strong>Now</strong> (sekarang) &rarr; <strong>Then</strong> (saat itu)</li>
+                <li><strong>Today</strong> (hari ini) &rarr; <strong>That day</strong> (hari itu)</li>
+                <li><strong>Tomorrow</strong> (besok) &rarr; <strong>The next day</strong> (keesokan harinya)</li>
+                <li><strong>Yesterday</strong> (kemarin) &rarr; <strong>The day before</strong> (sehari sebelumnya)</li>
+                <li><strong>Here</strong> (di sini) &rarr; <strong>There</strong> (di sana)</li>
+            </ul>
+        </section>
+
+        <!-- Bagian 4: Contoh Kalimat -->
+        <section id="contoh" class="kotak-materi">
+            <h2>4. Contoh Penggunaan</h2>
+
+            <div class="contoh-box">
+                <p><strong>Direct:</strong> Rina said, "I <u>study</u> English every day."</p>
+                <p><strong>Reported:</strong> Rina said that she <u>studied</u> English every day.</p>
+            </div>
+
+            <div class="contoh-box">
+                <p><strong>Direct:</strong> Budi said, "I <u>am playing</u> football now."</p>
+                <p><strong>Reported:</strong> Budi said that he <u>was playing</u> football then.</p>
+            </div>
+
+            <div class="contoh-box">
+                <p><strong>Direct:</strong> Sarah said, "I <u>will visit</u> my grandma tomorrow."</p>
+                <p><strong>Reported:</strong> Sarah said that she <u>would visit</u> her grandma the next day.</p>
+            </div>
+        </section>
+
+        <!-- Tombol kembali ke atas -->
+        <div class="tombol-wrap">
+            <a href="#atas" class="tombol">Kembali ke atas</a>
+        </div>
+    </main>
+
+    <!-- Bagian Bawah Website -->
+    <footer>
+        <p>Dibuat untuk Tugas Pembelajaran Bahasa Inggris &copy; 2026 - [Nama Kamu]</p>
+    </footer>
+
+</body>
+</html>
